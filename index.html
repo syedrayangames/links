@@ -249,112 +249,50 @@ r
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon Green Scroll Buttons</title>
-<style>
-  /* Styles for scroll buttons */
-  .scroll-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #00FF00; /* Neon Green */
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 9999;
-    transition: opacity 0.3s ease-in-out;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    window.onload = function() {
+      // Function to check if the device is a mobile device
+      function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+      }
 
-  .scroll-btn i {
-    color: #fff;
-  }
+      // Function to show the SweetAlert alert
+      function showDesktopModeAlert() {
+        Swal.fire({
+          title: "Switch to Desktop Mode",
+          text: "For a better experience, please switch to desktop mode.",
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
+          allowOutsideClick: false,
+          willClose: () => {
+            document.body.removeEventListener('click', blockClicks);
+          }
+        });
 
-  /* Styles for scroll down button */
-  .scroll-down {
-    display: block;
-  }
+        // Block outside clicks
+        document.body.addEventListener('click', blockClicks);
+      }
 
-  /* Styles for scroll up button */
-  .scroll-up {
-    bottom: auto;
-    top: 20px;
-    display: none;
-  }
-</style>
+      // Function to block outside clicks
+      function blockClicks(event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+
+      // Check if the user is using a mobile device
+      if (isMobileDevice()) {
+        showDesktopModeAlert();
+      }
+    }
+  </script>
 </head>
 <body>
-
-<!-- Scroll Down Button -->
-<div class="scroll-btn scroll-down" id="scrollDownBtn">
-  <i class="fas fa-chevron-down"></i>
-</div>
-
-<!-- Scroll Up Button -->
-<div class="scroll-btn scroll-up" id="scrollUpBtn">
-  <i class="fas fa-chevron-up"></i>
-</div>
-
-<!-- Your content goes here -->
-<div style="height: 2000px;"></div>
-
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script>
-  // Function to check if user is at the bottom of the page
-  function isBottom() {
-    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
-  }
-
-  // Function to check if user is at the top of the page
-  function isTop() {
-    return window.scrollY === 0;
-  }
-
-  // Function to handle scroll button visibility
-  function handleScrollBtn() {
-    const scrollDownBtn = document.getElementById('scrollDownBtn');
-    const scrollUpBtn = document.getElementById('scrollUpBtn');
-
-    if (isBottom()) {
-      scrollDownBtn.style.display = 'none';
-      scrollUpBtn.style.display = 'block';
-    } else if (isTop()) {
-      scrollDownBtn.style.display = 'block';
-      scrollUpBtn.style.display = 'none';
-    } else {
-      scrollDownBtn.style.display = 'none';
-      scrollUpBtn.style.display = 'none';
-    }
-  }
-
-  // Function to smoothly scroll to top
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  // Function to smoothly scroll to bottom
-  function scrollToBottom() {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
-  }
-
-  // Event listener for scroll
-  window.addEventListener('scroll', handleScrollBtn);
-
-  // Event listener for scroll down button
-  document.getElementById('scrollDownBtn').addEventListener('click', scrollToBottom);
-
-  // Event listener for scroll up button
-  document.getElementById('scrollUpBtn').addEventListener('click', scrollToTop);
-</script>
+  <!-- Your website content goes here -->
 </body>
 </html>
+
