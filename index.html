@@ -1,1 +1,212 @@
+<!-- Created by Sword 🛡️ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="neonButton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+    <title>Neon Light Button HoverEffects</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Sriracha&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Sriracha', cursive;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            background: #050801;
+        }
+
+        a {
+            position: relative;
+            display: inline-block;
+            padding: 25px 30px;
+            margin: 20px 0;
+            font-size: 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: 0.5s;
+            letter-spacing: 4px;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+        }
+
+        /* Neon button colors */
+        .red {
+            color: #ff0000; /* Red color */
+        }
+
+        .blue {
+            color: #03e9f4; /* Blue color */
+        }
+
+        .green {
+            color: #00ff00; /* Green color */
+        }
+
+        .purple {
+            color: #8a2be2; /* Purple color */
+        }
+
+        /* Define styles for Font Awesome icons */
+        .fa {
+            margin-right: 5px;
+        }
+
+        /* Animation styles */
+        a:hover {
+            background: #050801; /* Changed to black */
+            color: #03e9f4; /* Changed to blue */
+            box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+        }
+
+        a span {
+            position: absolute;
+            display: block;
+        }
+
+        a span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #03e9f4);
+            animation: animate1 1s linear infinite;
+        }
+
+        @keyframes animate1 {
+            0% {
+                left: -100%;
+            }
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        a span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: animate2 1s linear infinite;
+            animation-delay: 0.25s;
+        }
+
+        @keyframes animate2 {
+            0% {
+                top: -100%;
+            }
+            50%,
+            100% {
+                top: 100%;
+            }
+        }
+
+        a span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #03e9f4);
+            animation: animate3 1s linear infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes animate3 {
+            0% {
+                right: -100%;
+            }
+            50%,
+            100% {
+                right: 100%;
+            }
+        }
+
+        a span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #03e9f4);
+            animation: animate4 1s linear infinite;
+            animation-delay: 0.75s;
+        }
+
+        @keyframes animate4 {
+            0% {
+                bottom: -100%;
+            }
+            50%,
+            100% {
+                bottom: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://youtube.com/@ELITETROLLMAN?si=LmU4srSMp-Rl_-iM" class="red">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fab fa-youtube"></i> YOUTUBE
+    </a>
+    <a href="https://www.rayxstudioz.in" class="blue">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fa fa-check-circle"></i> rayxstudioz.in
+    </a>
+    <a href="sussyrayan.is-a.dev" class="green">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fa fa-code"></i> SUSSYRAYAN.IS-A.DEV
+    </a>
+    <a href="https://www.instagram.com/bmr.tt1" class="purple">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fab fa-instagram"></i> INSTAGRAM
+    </a>
+    <a href="https://discord.gg/eCKYkEmqDQ" class="red">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fab fa-discord"></i> DISCORD
+    </a>
+    <!-- Add more buttons as needed -->
+    <a href="https://www.threads.net/@bmr.tt1" class="brown">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fas fa-globe"></i> THREADS
+    </a>
+</body>
+</html>
+
+<div style="text-align: center;">
+    <h1><p style="color:WHITE;">MADE WITH ❤️ BY RAYXSTUDIOZ</p></h1>
+</div>
+
+
+
 
