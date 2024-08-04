@@ -51,7 +51,7 @@
             position: relative;
             transform-style: preserve-3d;
             transform: rotateX(50deg) rotateZ(-30deg);
-            border: 3px solid #00ff00;
+            border: 3px solid;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
             transition: 0.6s;
@@ -62,7 +62,6 @@
         .list__item:hover {
             transform: rotateX(0) rotateZ(0);
             z-index: 2;
-            border: 3px solid #00ff00;
             box-shadow: 0 0 25px rgba(0, 255, 0, 1);
         }
 
@@ -126,64 +125,64 @@
             font-weight: bold;
             text-shadow: 0 0 16px green, 0 0 10px green;
         }
-@media (max-width: 768px) {
-    .list__item {
-        width: 100%;
-        height: 300px; /* Adjust height for better fit */
-        margin: 20px 0; /* Increase margin to create larger gaps */
-        transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
-    }
-}
 
-@media (max-width: 480px) {
-    .title {
-        font-size: 20px; /* Reduce font size for smaller screens */
-        margin: 8px 0; /* Adjust margin for smaller screens */
-    }
+        @media (max-width: 768px) {
+            .list__item {
+                width: 100%;
+                height: 300px; /* Adjust height for better fit */
+                margin: 20px 0; /* Increase margin to create larger gaps */
+                transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
+            }
+        }
 
-    .list__item {
-        height: 250px; /* Further reduce height for very small screens */
-        margin: 30px 0; /* Increase margin to create larger gaps */
-    }
-}
+        @media (max-width: 480px) {
+            .title {
+                font-size: 20px; /* Reduce font size for smaller screens */
+                margin: 8px 0; /* Adjust margin for smaller screens */
+            }
 
+            .list__item {
+                height: 250px; /* Further reduce height for very small screens */
+                margin: 30px 0; /* Increase margin to create larger gaps */
+            }
+        }
     </style>
 </head>
 <body>
     <ul class="list">
         <li class="list__item">
             <div class="list__item-container">
-                <div class="title"><i class="fas fa-rocket"></i> RAYXSTUDIOZ</div>
+                <div class="title"><i class="fas fa-rocket"></i> <a href="https://www.rayxstudioz.in/" target="_blank" style="color: inherit; text-decoration: none;">RAYXSTUDIOZ</a></div>
                 <iframe src="https://www.rayxstudioz.in/" frameborder="0"></iframe>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
-                <div class="title"><i class="fas fa-globe"></i> PORTFOLIO</div>
+                <div class="title"><i class="fas fa-globe"></i> <a href="https://sussyrayan.is-a.dev" target="_blank" style="color: inherit; text-decoration: none;">PORTFOLIO</a></div>
                 <iframe src="https://sussyrayan.is-a.dev" frameborder="0"></iframe>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
-                <div class="title"><i class="fab fa-discord"></i> DISCORD WEBSITE</div>
+                <div class="title"><i class="fab fa-discord"></i> <a href="https://dscbmr.is-a.dev/" target="_blank" style="color: inherit; text-decoration: none;">DISCORD WEBSITE</a></div>
                 <iframe src="https://dscbmr.is-a.dev/" frameborder="0"></iframe>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
-                <div class="title"><i class="fab fa-themeco"></i>DONATE</div>
+                <div class="title"><i class="fab fa-themeco"></i> <a href="https://buymeacoffee.com/rayxstudiozgames" target="_blank" style="color: inherit; text-decoration: none;">DONATE</a></div>
                 <iframe src="https://buymeacoffee.com/rayxstudiozgames" frameborder="0"></iframe>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
-                <div class="title"><i class="fab fa-instagram"></i> INSTAGRAM</div>
+                <div class="title"><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/bmr.tt1/embed" target="_blank" style="color: inherit; text-decoration: none;">INSTAGRAM</a></div>
                 <iframe src="https://www.instagram.com/bmr.tt1/embed" frameborder="0"></iframe>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
-                <div class="title"><i class="fab fa-youtube"></i> YOUTUBE</div>
+                <div class="title"><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/embed/t4dh4_CS118?si=JrHzYVy5hUnWPsBc" target="_blank" style="color: inherit; text-decoration: none;">YOUTUBE</a></div>
                 <iframe src="https://www.youtube.com/embed/t4dh4_CS118?si=JrHzYVy5hUnWPsBc" frameborder="0" allowfullscreen></iframe>
             </div>
         </li>
@@ -201,6 +200,18 @@
             return color;
         }
 
+        const listItems = document.querySelectorAll('.list__item');
+        listItems.forEach(item => {
+            const randomColor = getRandomColor();
+            item.style.borderColor = randomColor;
+            item.addEventListener('mouseover', () => {
+                item.style.borderColor = randomColor;
+            });
+            item.addEventListener('mouseout', () => {
+                item.style.borderColor = randomColor;
+            });
+        });
+
         const titles = document.querySelectorAll('.title');
         titles.forEach(title => {
             title.style.color = getRandomColor();
@@ -208,6 +219,7 @@
     </script>
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
