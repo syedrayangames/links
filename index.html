@@ -35,21 +35,18 @@
         }
 
         .list {
-            width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-wrap: wrap;
-            list-style-type: none;
+            justify-content: center;
             padding: 0;
             margin: 0;
+            list-style-type: none;
         }
 
         .list__item {
-            flex-shrink: 0;
-            height: 568px;
-            width: 360px;
+            flex: 1 1 calc(33.333% - 40px); /* Three items per row with margin */
             margin: 20px;
+            height: 568px;
             position: relative;
             transform-style: preserve-3d;
             transform: rotateX(50deg) rotateZ(-30deg);
@@ -121,7 +118,7 @@
             padding: 20px;
             border: 5px solid black;
             background-color: #ffffff;
-            color: BLACK;
+            color: black;
             font-family: 'Luckiest Guy', cursive;
             font-size: 24px;
             font-weight: bold;
@@ -130,22 +127,20 @@
 
         @media (max-width: 768px) {
             .list__item {
-                width: 100%;
-                height: 300px; /* Adjust height for better fit */
-                margin: 20px 0; /* Increase margin to create larger gaps */
-                transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
+                flex: 1 1 calc(50% - 40px); /* Two items per row */
+                height: 300px;
             }
         }
 
         @media (max-width: 480px) {
             .title {
-                font-size: 20px; /* Reduce font size for smaller screens */
-                margin: 8px 0; /* Adjust margin for smaller screens */
+                font-size: 20px;
+                margin: 8px 0;
             }
 
             .list__item {
-                height: 250px; /* Further reduce height for very small screens */
-                margin: 30px 0; /* Increase margin to create larger gaps */
+                flex: 1 1 100%; /* One item per row */
+                height: 250px;
             }
         }
     </style>
@@ -217,6 +212,18 @@
         const titles = document.querySelectorAll('.title');
         titles.forEach(title => {
             title.style.color = getRandomColor();
+        });
+
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable Control+U
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+            }
         });
     </script>
 </body>
