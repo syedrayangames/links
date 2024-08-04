@@ -1,384 +1,193 @@
-<H3>CLICK ANY WHERE TO PLAY MUSIC</H3>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY LINKS</title>
-	  <link rel="icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgL0UdB4DOSs_hTKK4Csw5W0vZVC8mCcRCqTMxHjvOiCalgTmxQt7FDa42Yo-vPEpuZJQXox0CPoHxbH6P7R1zT6v8u4zEjEhEYYKl9Vz61AL-L7a39bjWxmkFnfglXrB8qjXc0oWlfoUUnOOGGGS8_t63G4ENofXja35FLjrfGm5qbddrIvKTlnUKTmhQ/s320/WhatsApp_Image_2024-05-08_at_11.01.21-removebg-preview.png" />
-
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
-
-<body>
-
-    <!-- Background Animation Text -->
-    <span class="bg-text-animation">RXHG</span>
-
-    <!-- Profile -->
-    <img class="my-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxQpHlwVGH6coHNphg1Kw_Orz10uFaZMDnjx8B_swYy9LoVwOuChUFt-nUOUtuQiG6t-d5bh4YjzOQ8JjF7Bg_gblVrARJxrNjhS_-jhEFHOv45xPxnNV2Xw8ASJBUuEr1KzdqFygrgbFIysXODv8V5k-JYU
-	BTyPcewU1KnWFg2U1yd6cvAfVmr4oRJe0/s320/88179bbf-94ea-4b54-86eb-775ac3ad53eb.jpg" alt="RX Logo">
-	<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Embedded iFrames</title>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .brawl-stars-text {
-            font-family: 'Luckiest Guy', cursive; /* Similar to the playful style in Brawl Stars */
-            font-size: 28px; /* Adjust the size as needed */
-            color: #A020F0; /* Gold color, adjust to the specific color used in Brawl Stars */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            perspective: 3000px;
+            background: linear-gradient(135deg, #000000, #ffffff, #ff0000, #ffff00, #8000ff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            font-family: 'Anton', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .list {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list__item {
+            flex-shrink: 0;
+            height: 568px;
+            width: 360px;
+            margin: 20px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(50deg) rotateZ(-30deg);
+            border: 3px solid #00ff00;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+            transition: 0.6s;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .list__item:hover {
+            transform: rotateX(0) rotateZ(0);
+            z-index: 2;
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 1);
+        }
+
+        .list__item-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fff;
+        }
+
+        .title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 28px;
+            color: #A020F0;
             text-shadow: 
-                2px 2px 0 #000000, /* Black shadow for depth */
-                2px -2px 0 #000000, 
-                -2px 2px 0 #000000, 
-                -2px -2px 0 #000000,
-                2px 2px 0 #000000, /* Thicker shadow */
-                4px -4px 0 #000000,
-                -4px 4px 0 #000000,
-                -4px -4px 0 #000000;
-            font-weight: bold; /* Ensures the text is bold */
-            text-align: center; /* Centers the text */
-            display: inline-block;
-            margin: 12px;
+                0 0 5px #ff0000,
+                0 0 10px #ff0000,
+                0 0 15px #ff0000,
+                0 0 20px #ff0000,
+                0 0 25px #ff0000,
+                0 0 30px #ff0000,
+                0 0 35px #ff0000;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title i {
+            color: #A020F0;
+            text-shadow: 
+                0 0 5px #ff0000,
+                0 0 10px #ff0000,
+                0 0 15px #ff0000,
+                0 0 20px #ff0000,
+                0 0 25px #ff0000,
+                0 0 30px #ff0000,
+                0 0 35px #ff0000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            border: 5px solid black;
+            background-color: #ffffff;
+            color: BLACK;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 16px green, 0 0 10px green;
         }
     </style>
 </head>
 <body>
-    <div class="brawl-stars-text">
-        (SYED RAYAN)
-    </div>
+    <ul class="list">
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title"><i class="fas fa-rocket"></i> RAYXSTUDIOZ</div>
+                <iframe src="https://www.rayxstudioz.in/" frameborder="0"></iframe>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title"><i class="fas fa-globe"></i> PORTFOLIO</div>
+                <iframe src="https://sussyrayan.is-a.dev" frameborder="0"></iframe>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item-container">
+            <div class="list__item-container">
+                <div class="title"><i class="fab fa-discord"></i>DISOCRD WEBSITE</div>
+                <iframe src="https://dscbmr.is-a.dev/" frameborder="0"></iframe>
+            </div>
+        </li>
+            <li class="list__item">
+            <div class="list__item-container">
+                <div class="title"><i class="fab fa-themeco"></i>LINKS LOL</div>
+                <iframe src="https://linksrayan.is-a.dev" frameborder="0"></iframe>
+            </div>
+            </div>
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title"><i class="fab fa-instagram"></i> INSTAGRAM</div>
+                <iframe src="https://www.instagram.com/bmr.tt1/embed" frameborder="0"></iframe>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title"><i class="fab fa-youtube"></i> YOUTUBE</div>
+                <iframe src="https://www.youtube.com/embed/t4dh4_CS118?si=JrHzYVy5hUnWPsBc" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </li>
+    </ul>
+    <footer>
+        © 2024 RAYXSTUDIOZ ALL RIGHTS RESERVED.
+    </footer>
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const titles = document.querySelectorAll('.title');
+        titles.forEach(title => {
+            title.style.color = getRandomColor();
+        });
+    </script>
 </body>
 </html>
-
-    <p>BACKEND DEV & CONTENT CREATOR</p>
-
-    <!-- Sosial Media -->
-    <div class="sosmed">
-        <a href="https://tiktok.com/@bmr.tt" target="_blank">
-            <i class="ph ph-tiktok-logo"></i>
-        </a>
-        <a href="https://instagram.com/bmr.tt1" target="_blank">
-            <i class="ph ph-instagram-logo"></i>
-        </a>
-        <a href="https://youtube.com/@elitetrollman" target="_blank">
-            <i class="ph ph-youtube-logo"></i>
-        </a>
-        <a href="www.linkedin.com/in/syed-rayan-4a02a92b8" target="_blank">
-            <i class="ph ph-Linkedin-logo"></i>
-        </a>
-        <a href="https://github.com/syedrayangames" target="_blank">
-            <i class="ph ph-github-logo"></i>
-        </a>
-    </div>
-
-    <!-- Link List -->
-    <ul class="links">
-		<li>
-            <a href="https://sussyrayan.is-a.dev/" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-Code"></i>
-                </div>
-                <p class="link-text">PORTFOLIO</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-Code"></i>
-                </div>
-            </a>
-        </li>
-		<li>
-        <li>
-            <a href="https://www.youtube.com/@elitetrollman" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-youtube-logo"></i>
-                </div>
-                <p class="link-text">YOUTUBE CHANNEL</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-youtube-logo"></i>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="https://discord.gg/Amp2Uay5r9" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-Discord-logo"></i>
-                </div>
-                <p class="link-text">JOIN DISCORD SERVER</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-Discord-logo"></i>
-                </div>
-            </a>
-        </li>
-		<li>
-            <a href="https://tiktok.com/@bmr.tt" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-tiktok-logo"></i>
-                </div>
-                <p class="link-text">TIK TOK</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-tiktok-logo"></i>
-                </div>
-            </a>
-        </li>
-		<li>
-            <a href="https://github.com/syedrayangames" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-github-logo"></i>
-                </div>
-                <p class="link-text">GITHUB</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-github-logo"></i>
-                </div>
-            </a>
-        </li>
-		<li>
-            <a href="https://instagram.com/bmr.tt1" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-instagram-logo"></i>
-                </div>
-                <p class="link-text">INSTAGRAM</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-instagram-logo"></i>
-                </div>
-            </a>
-        </li>
-		<li>
-            <a href="https://Threads.com/bmr.tt1" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-Threads-logo"></i>
-                </div>
-                <p class="link-text">THREADS</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-Threads-logo"></i>
-                </div>
-            </a>
-        </li>
-		<li>
-            <a href="https://www.rayxstudioz.in" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-Globe"></i>
-                </div>
-                <p class="link-text">RAYXSTUDIOZ.IN</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-Globe"></i>
-                </div>
-            </a>
-        </li>
-		<li>
-			<li>
-            <a href="https://dscbmr.is-a.dev" target="_blank" class="link-card">
-                <div class="link-icon">
-                    <i class="ph ph-Discord-logo"></i>
-                </div>
-                <p class="link-text">DSCBMR.IS-A.DEV</p>
-                <div class="link-action">
-                    <i class="ph-fill ph-Globe"></i>
-                </div>
-            </a>
-        </li>
-    <a href="mailto:helpdesk@rayxstudioz.in" target="_blank" class="link-card">
-        <div class="link-icon">
-            <i class="ph ph-Envelope"></i>
-        </div>
-        <p class="link-text">EMAIL</p>
-        <div class="link-action">
-            <i class="ph-fill ph-Envelope"></i>
-        </div>
-    </a>
-</li>
-
-
-    </ul>
-
-    <div class="copyright">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjD0D5Ky7j3PpSWCoIrc2OZimvcS9uKfWekUu9woi_zB3M4rve_EEdwuyUZDumgNyb_gfdLlwpUI_-6kNPgVHtbyt5EOK5oH1fwnp3rtfZazMHZinfbX3rFCWNWlSvbbkO3UarZgXF7qWnGhIgcIHOvhcQT3izWoCaO6QZUtInBZHS49b2wlMpGgTSBxhM/s320/InShot_20240110_194020245.gif" alt="AR Logo">
-        <p>Copyright Rayxstudioz &copy; 2024</p>
-    </div>
-
-    <!-- Toast Notification -->
-    <div id="toast">
-    </div>
-
-    <script src="/script.js"></script>
-</body>
-<style>* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  background-color: #191931;
-  color: #e1e1f1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Outfit", sans-serif;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  gap: 1rem;
-}
-
-.bg-text-animation {
-  position: absolute;
-  top: 5rem;
-  font-size: 12rem;
-  text-transform: uppercase;
-  font-weight: 900;
-  -webkit-text-stroke: 2px #2d2d56;
-  -webkit-text-fill-color: transparent;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  z-index: -1;
-  user-select: none;
-}
-
-.my-photo {
-  width: 10rem;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  object-position: top;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.sosmed i {
-  font-size: 1.5rem;
-  color: #8787a3;
-}
-
-.sosmed i:hover {
-  color: rgb(255, 0, 0);
-}
-
-.sosmed a:not(:last-child) {
-  margin-right: 1rem;
-}
-
-ul {
-  width: 80%;
-  max-width: 40rem;
-}
-
-ul li {
-  list-style: none;
-}
-
-ul.links li:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-.links {
-  margin-top: 1rem;
-}
-
-.link-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2d2d56;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 20px;
-  box-shadow: 8px 10px 0 #0f0f25;
-  border: 2px solid #2d2d56;
-}
-
-.link-card:hover {
-  border: 2px solid #00FFFF;
-}
-
-.links .link-icon {
-  background-image: linear-gradient(to top, purple, cyan);
-  padding: 0.5rem;
-  border-radius: 10px;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.links .link-icon i {
-  color:  #FFFF00 #FFFF33;
-}
-
-.links .link-text {
-  text-align: center;
-}
-
-.link-action {
-  color: #8787a3;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.copyright {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: #8787a3;
-  font-size: 0.75rem;
-}
-
-.copyright img {
-  width: 2rem;
-  opacity: 0.4;
-}
-
-#toast {
-  width: max-content;
-  position: fixed;
-  top: 0;
-}
-
-.toast-container {
-  background-color: rgb(255, 0, 0);
-  color: #0f0f25;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 1rem;
-  animation: muncul 300ms ease-in-out;
-}
-
-.toast-gone {
-  animation: hilang 1s ease-in-out 1s;
-}
-
-@keyframes muncul {
-  from {
-    opacity: 0;
-    transform: translateY(-4rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes hilang {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}</style></style>
-</html>      
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -462,5 +271,4 @@ document.addEventListener("scroll", (e) => {
     window.scrollY / 5
   }px)`;
 });</script>
-<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-31659e58-27fe-4ee4-ace3-65592ababcb7" data-elfsight-app-lazy></div>
+
