@@ -9,145 +9,289 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon link added -->
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+   * {
+    box-sizing: border-box;
+}
 
-        body {
-            height: 100vh;
-            width: 100%;
-            perspective: 3000px;
-            background: linear-gradient(135deg, #000000, #ffffff, #ff0000, #ffff00, #8000ff);
-            background-size: 400% 400%;
-            animation: gradientAnimation 10s ease infinite;
-            font-family: 'Anton', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+body {
+    height: 100vh;
+    width: 100%;
+    perspective: 3000px;
+    background: linear-gradient(135deg, #000000, #ffffff, #ff0000, #ffff00, #8000ff, #00ffff, #ff00ff);
+    background-size: 800% 800%;
+    animation: gradientAnimation 15s ease infinite;
+    font-family: 'Anton', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
 
-        .list {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .list__item {
-            flex-shrink: 0;
-            height: 568px;
-            width: 360px;
-            margin: 20px;
-            position: relative;
-            transform-style: preserve-3d;
-            transform: rotateX(50deg) rotateZ(-30deg);
-            border: 3px solid;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
-            transition: 0.6s;
-            background: #000;
-            overflow: hidden;
-        }
+.list__item {
+    flex-shrink: 0;
+    height: 568px;
+    width: 360px;
+    margin: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(30deg) rotateZ(-30deg);
+    border: 5px solid;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
+    transition: 0.6s;
+    background: #000;
+    overflow: hidden;
+    perspective: 1000px;
+}
 
-        .list__item:hover {
-            transform: rotateX(0) rotateZ(0);
-            z-index: 2;
-            box-shadow: 0 0 25px rgba(0, 255, 0, 1);
-        }
+.list__item:hover {
+    transform: rotateX(0) rotateZ(0) scale(1.05);
+    z-index: 2;
+    box-shadow: 0 0 40px rgba(0, 255, 0, 1);
+}
 
-        .list__item-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-        }
+.list__item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transform: rotateX(0deg) rotateY(0deg);
+}
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: #fff;
-        }
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+}
 
-        .title {
-            font-family: 'Luckiest Guy', cursive;
-            font-size: 28px;
-            color: #A020F0;
-            text-shadow: 
-                0 0 5px #ff0000,
-                0 0 10px #ff0000,
-                0 0 15px #ff0000,
-                0 0 20px #ff0000,
-                0 0 25px #ff0000,
-                0 0 30px #ff0000,
-                0 0 35px #ff0000;
-            font-weight: bold;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 12px 0;
-            position: relative;
-            z-index: 1;
-        }
+.title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 28px;
+    color: #A020F0;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 15px #ff0000,
+        0 0 20px #ff0000,
+        0 0 25px #ff0000,
+        0 0 30px #ff0000,
+        0 0 35px #ff0000;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    position: relative;
+    z-index: 1;
+}
 
-        .title i {
-            color: #A020F0;
-            text-shadow: 
-                0 0 5px #ff0000,
-                0 0 10px #ff0000,
-                0 0 15px #ff0000,
-                0 0 20px #ff0000,
-                0 0 25px #ff0000,
-                0 0 30px #ff0000,
-                0 0 35px #ff0000;
-        }
+.title i {
+    color: #A020F0;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 15px #ff0000,
+        0 0 20px #ff0000,
+        0 0 25px #ff0000,
+        0 0 30px #ff0000,
+        0 0 35px #ff0000;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            border: 5px solid black;
-            background-color: #ffffff;
-            color: BLACK;
-            font-family: 'Luckiest Guy', cursive;
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 0 0 16px green, 0 0 10px green;
-        }
+footer {
+    text-align: center;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: #ffffff;
+    color: BLACK;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 16px green, 0 0 10px green;
+}
 
-        @media (max-width: 768px) {
-            .list__item {
-                width: 100%;
-                height: 300px; /* Adjust height for better fit */
-                margin: 20px 0; /* Increase margin to create larger gaps */
-                transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
-            }
-        }
+@media (max-width: 768px) {
+    .list__item {
+        width: 100%;
+        height: 300px; /* Adjust height for better fit */
+        margin: 20px 0; /* Increase margin to create larger gaps */
+        transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
+    }
+}
 
-        @media (max-width: 480px) {
-            .title {
-                font-size: 20px; /* Reduce font size for smaller screens */
-                margin: 8px 0; /* Adjust margin for smaller screens */
-            }
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px; /* Reduce font size for smaller screens */
+        margin: 8px 0; /* Adjust margin for smaller screens */
+    }
 
-            .list__item {
-                height: 250px; /* Further reduce height for very small screens */
-                margin: 30px 0; /* Increase margin to create larger gaps */
-            }
-        }
+    .list__item {
+        height: 250px; /* Further reduce height for very small screens */
+        margin: 30px 0; /* Increase margin to create larger gaps */
+    }
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    perspective: 3000px;
+    background: linear-gradient(135deg, #000000, #ffffff, #ff0000, #ffff00, #8000ff, #00ffff, #ff00ff);
+    background-size: 800% 800%;
+    animation: gradientAnimation 15s ease infinite;
+    font-family: 'Anton', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list__item {
+    flex-shrink: 0;
+    height: 568px;
+    width: 360px;
+    margin: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(30deg) rotateZ(-30deg);
+    border: 5px solid;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
+    transition: 0.6s;
+    background: #000;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.list__item:hover {
+    transform: rotateX(0) rotateZ(0) scale(1.05);
+    z-index: 2;
+    box-shadow: 0 0 40px rgba(0, 255, 0, 1);
+}
+
+.list__item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transform: rotateX(0deg) rotateY(0deg);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+}
+
+.title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 28px;
+    color: #A020F0;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 15px #ff0000,
+        0 0 20px #ff0000,
+        0 0 25px #ff0000,
+        0 0 30px #ff0000,
+        0 0 35px #ff0000;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.title i {
+    color: #A020F0;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 15px #ff0000,
+        0 0 20px #ff0000,
+        0 0 25px #ff0000,
+        0 0 30px #ff0000,
+        0 0 35px #ff0000;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: #ffffff;
+    color: BLACK;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 16px green, 0 0 10px green;
+}
+
+@media (max-width: 768px) {
+    .list__item {
+        width: 100%;
+        height: 300px; /* Adjust height for better fit */
+        margin: 20px 0; /* Increase margin to create larger gaps */
+        transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px; /* Reduce font size for smaller screens */
+        margin: 8px 0; /* Adjust margin for smaller screens */
+    }
+
+    .list__item {
+        height: 250px; /* Further reduce height for very small screens */
+        margin: 30px 0; /* Increase margin to create larger gaps */
+    }
+}
+
     </style>
 </head>
 <body>
