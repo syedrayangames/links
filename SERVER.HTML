@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAYXSTUDIOZ SERVERS SPEED</title>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Luckiest Guy', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            position: relative; /* Position the Google Translate widget */
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 0 0 15px #fff;
+            margin-top: 20px;
+        }
+        select, button {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 1em;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #fff; /* Border for select */
+            border-radius: 5px;
+        }
+        select {
+            background-color: #333;
+            color: #fff;
+            box-shadow: 0 0 10px #fff; /* Neon white shadow */
+        }
+        button {
+            background-color: #ff6600; /* Neon orange */
+            color: #fff; /* Neon white text */
+            cursor: pointer;
+            box-shadow: 0 0 10px #fff; /* Neon white glow */
+            border: none;
+        }
+        button:hover {
+            box-shadow: 0 0 20px #fff; /* Enhanced neon white glow on hover */
+        }
+        #result {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .fast {
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        .medium {
+            color: #00f0ff;
+            text-shadow: 0 0 10px #00f0ff;
+        }
+        .slow {
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        select:focus {
+            outline: none;
+            border: 2px solid #fff; /* Neon white border */
+            box-shadow: 0 0 15px #fff; /* Neon white glow */
+        }
+        /* SweetAlert2 custom styling */
+        .swal-popup {
+            box-shadow: 0 0 15px #fff !important; /* Neon white shadow */
+            border: 2px solid #fff !important; /* Neon white border */
+            color: #fff !important; /* Neon white text */
+            text-shadow: 0 0 10px #fff; /* Neon white glow */
+        }
+        .swal-container {
+            background: rgba(0, 0, 0, 0.8) !important; /* Dark background with transparency */
+        }
+        .swal-title, .swal-html {
+            color: #fff !important; /* Ensure text color is white */
+            text-shadow: 0 0 10px #fff !important; /* Neon white glow */
+        }
+        .swal-confirm {
+            background-color: #00ff00 !important; /* Neon green */
+            color: #000 !important; /* Text color inside button */
+        }
+        #google_translate_element {
+            position: fixed; /* Fixed positioning */
+            top: 10px;
+            left: 10px;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        /* Responsive design adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            select, button {
+                font-size: 0.8em;
+                padding: 8px;
+                margin: 8px;
+            }
+            #result {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+    <div id="google_translate_element"></div>
+    <div class="container">
+        <h1>WEBSITES SPEEDS</h1>
+        <select id="url">
+            <option value="">Select a website</option>
+            <option value="https://sussyrayan.is-a.dev">Sussyrayan</option>
+            <option value="https://dscbmr.is-a.dev">Dscbmr</option>
+            <option value="https://linksrayan.is-a.dev">Links</option>
+            <option value="https://bmr.thedev.me">BMR.thedev.me</option>
+        </select>
+        <button id="checkSpeedBtn">Check Speed</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script>
+        document.getElementById('checkSpeedBtn').addEventListener('click', checkSpeed);
+
+        async function checkSpeed() {
+            const url = document.getElementById('url').value;
+            if (!url) {
+                Swal.fire({
+                    title: 'Please select a website!',
+                    text: 'You need to select a website from the dropdown.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#00ff00', // Neon green
+                    background: '#000', // Black background
+                    customClass: {
+                        container: 'swal-container',
+                        popup: 'swal-popup'
+                    },
+                    allowOutsideClick: false // Disable outside click
+                });
+                return;
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = 'Checking...';
+            resultDiv.className = '';
+
+            try {
+                const startTime = performance.now();
+
+                // Perform a fetch request to the URL
+                const response = await fetch(url, { method: 'HEAD' });
+                const endTime = performance.now();
+
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const duration = endTime - startTime;
+
+                let speedClass;
+                if (duration < 2000) {
+                    speedClass = 'fast';
+                } else if (duration < 5000) {
+                    speedClass = 'medium';
+                } else {
+                    speedClass = 'slow';
+                }
+
+                resultDiv.textContent = `Speed: ${speedClass.toUpperCase()} (${Math.round(duration)}ms)`;
+                resultDiv.classList.add(speedClass);
+
+            } catch (error) {
+                resultDiv.textContent = 'SERVER ERROR';
+                resultDiv.className = '';
+            }
+        }
+    </script>
+</body>
+</html>
