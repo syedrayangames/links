@@ -6,302 +6,147 @@
     <title>LINKS</title>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon link added -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon link added -->
 
     <style>
-   * {
-    box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-body {
-    height: 100vh;
-    width: 100%;
-    perspective: 3000px;
-    background: linear-gradient(135deg, #000000, #ffffff, #ff0000, #ffff00, #8000ff, #00ffff, #ff00ff);
-    background-size: 800% 800%;
-    animation: gradientAnimation 15s ease infinite;
-    font-family: 'Anton', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        body {
+            height: 100vh;
+            width: 100%;
+            background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEh8-tntWCcKgJ5EuBah7pUn1aZs-Nmn-Py1zRPasFqaq_5PwAqtoKZYhRvhA5A3kOdHgYDkBk9eHOHNN9LQdFYVSbapeTtjGqA2vTXv8USxmfhG7G4KTqcIwdHeIcAb1fRywkW6e8FVpreygoATEv66zgBS52G8jYMCnhoxF2w24O2jYLd2ozN5ofgHQ/s320/rainy-evening-minecraft.1920x1080-ezgif.com-video-to-gif-converter.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Anton', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-@keyframes gradientAnimation {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
+        .list {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.list {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
+        .list__item {
+            flex-shrink: 0;
+            height: 400px;
+            width: 300px;
+            margin: 20px;
+            position: relative;
+            border: 5px solid;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+            transition: 0.6s;
+            background: #000;
+            overflow: hidden;
+        }
 
-.list__item {
-    flex-shrink: 0;
-    height: 568px;
-    width: 360px;
-    margin: 20px;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateX(30deg) rotateZ(-30deg);
-    border: 5px solid;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
-    transition: 0.6s;
-    background: #000;
-    overflow: hidden;
-    perspective: 1000px;
-}
+        .list__item:hover {
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 1);
+        }
 
-.list__item:hover {
-    transform: rotateX(0) rotateZ(0) scale(1.05);
-    z-index: 2;
-    box-shadow: 0 0 40px rgba(0, 255, 0, 1);
-}
+        .list__item-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
 
-.list__item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    transform: rotateX(0deg) rotateY(0deg);
-}
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fff;
+        }
 
-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: #fff;
-}
+        .title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 24px;
+            color: #A020F0;
+            text-shadow: 
+                0 0 5px #ffffff,
+                0 0 10px #ffffff,
+                0 0 15px #ffffff,
+                0 0 20px #ffffff,
+                0 0 25px #ffffff,
+                0 0 30px #ffffff,
+                0 0 35px #ffffff;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            position: relative;
+            z-index: 1;
+        }
 
-.title {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 28px;
-    color: #A020F0;
-    text-shadow: 
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 15px #ff0000,
-        0 0 20px #ff0000,
-        0 0 25px #ff0000,
-        0 0 30px #ff0000,
-        0 0 35px #ff0000;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 12px 0;
-    position: relative;
-    z-index: 1;
-}
+        .title i {
+            color: #A020F0;
+            text-shadow: 
+                0 0 5px #ffffff,
+                0 0 10px #ffffff,
+                0 0 15px #ffffff,
+                0 0 20px #ffffff,
+                0 0 25px #ffffff,
+                0 0 30px #ffffff,
+                0 0 35px #ffffff;
+        }
 
-.title i {
-    color: #A020F0;
-    text-shadow: 
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 15px #ff0000,
-        0 0 20px #ff0000,
-        0 0 25px #ff0000,
-        0 0 30px #ff0000,
-        0 0 35px #ff0000;
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            border: 5px solid black;
+            background-color: #ffffff;
+            color: BLACK;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 16px green, 0 0 10px green;
+        }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    border: 5px solid black;
-    background-color: #ffffff;
-    color: BLACK;
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 0 0 16px green, 0 0 10px green;
-}
+        @media (max-width: 768px) {
+            body {
+                background: #000; /* Set background to black for mobile devices */
+            }
 
-@media (max-width: 768px) {
-    .list__item {
-        width: 100%;
-        height: 300px; /* Adjust height for better fit */
-        margin: 20px 0; /* Increase margin to create larger gaps */
-        transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
-    }
-}
+            .list__item {
+                width: 90%;
+                height: 250px; /* Adjust height for better fit on mobile */
+                margin: 20px auto; /* Center items with auto margins */
+                border: 5px solid rgba(255, 255, 255, 0.9); /* Enhanced border glow for mobile */
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); /* Enhanced shadow for mobile */
+            }
+        }
 
-@media (max-width: 480px) {
-    .title {
-        font-size: 20px; /* Reduce font size for smaller screens */
-        margin: 8px 0; /* Adjust margin for smaller screens */
-    }
+        @media (max-width: 480px) {
+            .title {
+                font-size: 20px; /* Reduce font size for smaller screens */
+                margin: 8px 0; /* Adjust margin for smaller screens */
+            }
 
-    .list__item {
-        height: 250px; /* Further reduce height for very small screens */
-        margin: 30px 0; /* Increase margin to create larger gaps */
-    }
-}
-* {
-    box-sizing: border-box;
-}
-
-body {
-    height: 100vh;
-    width: 100%;
-    perspective: 3000px;
-    background: linear-gradient(135deg, #000000, #ffffff, #ff0000, #ffff00, #8000ff, #00ffff, #ff00ff);
-    background-size: 800% 800%;
-    animation: gradientAnimation 15s ease infinite;
-    font-family: 'Anton', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-@keyframes gradientAnimation {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-.list {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.list__item {
-    flex-shrink: 0;
-    height: 568px;
-    width: 360px;
-    margin: 20px;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateX(30deg) rotateZ(-30deg);
-    border: 5px solid;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
-    transition: 0.6s;
-    background: #000;
-    overflow: hidden;
-    perspective: 1000px;
-}
-
-.list__item:hover {
-    transform: rotateX(0) rotateZ(0) scale(1.05);
-    z-index: 2;
-    box-shadow: 0 0 40px rgba(0, 255, 0, 1);
-}
-
-.list__item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    transform: rotateX(0deg) rotateY(0deg);
-}
-
-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: #fff;
-}
-
-.title {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 28px;
-    color: #A020F0;
-    text-shadow: 
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 15px #ff0000,
-        0 0 20px #ff0000,
-        0 0 25px #ff0000,
-        0 0 30px #ff0000,
-        0 0 35px #ff0000;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 12px 0;
-    position: relative;
-    z-index: 1;
-}
-
-.title i {
-    color: #A020F0;
-    text-shadow: 
-        0 0 5px #ff0000,
-        0 0 10px #ff0000,
-        0 0 15px #ff0000,
-        0 0 20px #ff0000,
-        0 0 25px #ff0000,
-        0 0 30px #ff0000,
-        0 0 35px #ff0000;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    border: 5px solid black;
-    background-color: #ffffff;
-    color: BLACK;
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 0 0 16px green, 0 0 10px green;
-}
-
-@media (max-width: 768px) {
-    .list__item {
-        width: 100%;
-        height: 300px; /* Adjust height for better fit */
-        margin: 20px 0; /* Increase margin to create larger gaps */
-        transform: rotateX(0) rotateZ(0); /* Reset 3D transform for better fit */
-    }
-}
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 20px; /* Reduce font size for smaller screens */
-        margin: 8px 0; /* Adjust margin for smaller screens */
-    }
-
-    .list__item {
-        height: 250px; /* Further reduce height for very small screens */
-        margin: 30px 0; /* Increase margin to create larger gaps */
-    }
-}
-
+            .list__item {
+                height: 200px; /* Further reduce height for very small screens */
+                margin: 20px auto; /* Center items with auto margins */
+            }
+        }
     </style>
 </head>
 <body>
     <ul class="list">
-        <li class="list__item">
-            <div class="list__item-container">
-                <div class="title"><i class="fab fa-redhat"></i> <a href="https://www.rayxstudioz.in/" target="_blank" style="color: inherit; text-decoration: none;">RAYXSTUDIOZ</a></div>
-                <iframe src="https://www.rayxstudioz.in/" frameborder="0"></iframe>
-            </div>
-        </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fas fa-globe"></i> <a href="https://sussyrayan.is-a.dev" target="_blank" style="color: inherit; text-decoration: none;">PORTFOLIO</a></div>
@@ -313,21 +158,22 @@ footer {
                 <div class="title"><i class="fab fa-discord"></i> <a href="https://dscbmr.is-a.dev/" target="_blank" style="color: inherit; text-decoration: none;">DISCORD WEBSITE</a></div>
                 <iframe src="https://dscbmr.is-a.dev/" frameborder="0"></iframe>
             </div>
-             </li>
+        </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fa fa-terminal"></i> <a href="https://terminalbmr.is-a.dev" target="_blank" style="color: inherit; text-decoration: none;">TERMINAL PORTFOLIO</a></div>
                 <iframe src="https://terminalbmr.is-a.dev" frameborder="0"></iframe>
             </div>
-			 </li>
+        </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fa fa-gamepad"></i> <a href="https://playwithbmr.is-a.dev" target="_blank" style="color: inherit; text-decoration: none;">PLAY WITH ME</a></div>
                 <iframe src="https://playwithbmr.is-a.dev" frameborder="0"></iframe>
             </div>
+        </li>
         <li class="list__item">
             <div class="list__item-container">
-                <div class="title"><i class="fa fa-ravelry"></i> <a href="https://bmr.thedev.me" target="_blank" style="color: inherit; text-decoration: none;">MY 3D PROJECTS</a></div>
+                <div class="title"><i class="fa fa-arrows"></i> <a href="https://bmr.thedev.me" target="_blank" style="color: inherit; text-decoration: none;">MY 3D PROJECTS</a></div>
                 <iframe src="https://bmr.thedev.me" frameborder="0"></iframe>
             </div>
         </li>
@@ -346,127 +192,15 @@ footer {
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/embed/t4dh4_CS118?si=JrHzYVy5hUnWPsBc" target="_blank" style="color: inherit; text-decoration: none;">YOUTUBE</a></div>
-                <iframe src="https://www.youtube.com/embed/t4dh4_CS118?si=JrHzYVy5hUnWPsBc" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/a5H6xgdDESs" frameborder="0"></iframe>
             </div>
         </li>
     </ul>
     <footer>
-        © 2024 RAYXSTUDIOZ ALL RIGHTS RESERVED.
+        <p>Created with ❤️ by RAYXSTUDIOZ</p>
     </footer>
-    <script>
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        const listItems = document.querySelectorAll('.list__item');
-        listItems.forEach(item => {
-            const randomColor = getRandomColor();
-            item.style.borderColor = randomColor;
-            item.addEventListener('mouseover', () => {
-                item.style.borderColor = randomColor;
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.borderColor = randomColor;
-            });
-        });
-
-        const titles = document.querySelectorAll('.title');
-        titles.forEach(title => {
-            title.style.color = getRandomColor();
-        });
-    </script>
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Protected Page</title>
-<script>
-// Disable right-click context menu
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
-
-// Disable Control+U
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'u') {
-        e.preventDefault();
-    }
-});
-</script>
-</head>
-<body>
-<style>* {
-  
-<script>/**
- * Untuk membuat link bisa dicopy
- */
-const actionLink = document.querySelectorAll(".link-card .link-action");
-
-actionLink.forEach((action) => {
-  action.addEventListener("click", (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(action.parentElement.getAttribute("href"));
-
-    /**
-     * Untuk memunculkan toast notification
-     */
-    document.getElementById("toast").innerHTML = `
-        <div class="toast-container">
-            <p>✅ Link <strong> ${action.parentElement.innerText} </strong> berhasil disalin!</p>
-        </div>
-    `;
-
-    /**
-     * Untuk menghilangkan toast notification
-     */
-
-    setTimeout(() => {
-      document
-        .querySelector("#toast .toast-container")
-        .classList.add("toast-gone");
-    }, 300);
-
-    setTimeout(() => {
-      document.querySelector("#toast .toast-container").remove();
-    }, 2000);
-  });
-});
-
-/**
- * Untuk ganti icon sosmed saat hover
- */
-
-document.querySelectorAll(".sosmed i").forEach((sosmed) => {
-  sosmed.addEventListener("mouseenter", () => {
-    sosmed.classList.remove("ph");
-    sosmed.classList.add("ph-fill");
-  });
-
-  sosmed.addEventListener("mouseleave", () => {
-    sosmed.classList.remove("ph-fill");
-    sosmed.classList.add("ph");
-  });
-});
-
-/**
- * Animasi Text bergerak saat scroll
- */
-
-document.addEventListener("scroll", (e) => {
-  document.querySelector(".bg-text-animation").style.transform = `translateX(${
-    window.scrollY / 5
-  }px)`;
-});</script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
