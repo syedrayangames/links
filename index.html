@@ -6,7 +6,7 @@
     <title>LINKS</title>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon link added -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <style>
         * {
@@ -45,16 +45,34 @@
             position: relative;
             border: 5px solid;
             border-radius: 15px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
-            transition: 0.6s;
-            background: #000;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+            transition: transform 0.6s, box-shadow 0.6s;
+            background: rgba(0, 0, 0, 0.8);
             overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .list__item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 80%);
+            transform: rotateX(90deg);
+            transition: opacity 0.6s;
         }
 
         .list__item:hover {
-            transform: scale(1.05);
+            transform: rotateY(10deg) rotateX(10deg) scale(1.1);
             z-index: 2;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 1);
+            box-shadow: 0 0 60px rgba(255, 255, 255, 1);
+        }
+
+        .list__item:hover::before {
+            opacity: 1;
         }
 
         .list__item-container {
@@ -63,6 +81,8 @@
             align-items: center;
             height: 100%;
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         iframe {
@@ -120,28 +140,63 @@
 
         @media (max-width: 768px) {
             body {
-                background: #000; /* Set background to black for mobile devices */
+                background: #000;
             }
 
             .list__item {
-                width: 90%;
-                height: 250px; /* Adjust height for better fit on mobile */
-                margin: 20px auto; /* Center items with auto margins */
-                border: 5px solid rgba(255, 255, 255, 0.9); /* Enhanced border glow for mobile */
-                box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); /* Enhanced shadow for mobile */
+                width: calc(100% - 40px); /* Adjust width to full width minus margins */
+                height: 250px;
+                margin: 20px auto; /* Center align and adjust margins */
+                border: 5px solid rgba(255, 255, 255, 0.9);
+                box-shadow: 0 0 60px rgba(255, 255, 255, 0.9);
             }
         }
 
         @media (max-width: 480px) {
             .title {
-                font-size: 20px; /* Reduce font size for smaller screens */
-                margin: 8px 0; /* Adjust margin for smaller screens */
+                font-size: 20px;
+                margin: 8px 0;
             }
 
             .list__item {
-                height: 200px; /* Further reduce height for very small screens */
-                margin: 20px auto; /* Center items with auto margins */
+                height: 200px;
+                margin: 20px auto;
             }
+        }
+
+        .visit-button {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .list__item:hover .visit-button {
+            display: block;
+        }
+
+        .toast-container {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .toast-gone {
+            opacity: 0;
         }
     </style>
 </head>
@@ -151,137 +206,110 @@
             <div class="list__item-container">
                 <div class="title"><i class="fas fa-globe"></i> <a href="https://sussyrayan.is-a.dev" target="_blank" style="color: inherit; text-decoration: none;">PORTFOLIO</a></div>
                 <iframe src="https://sussyrayan.is-a.dev" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://sussyrayan.is-a.dev', '_blank')">Visit Website</div>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fab fa-discord"></i> <a href="https://dscbmr.is-a.dev/" target="_blank" style="color: inherit; text-decoration: none;">DISCORD WEBSITE</a></div>
                 <iframe src="https://dscbmr.is-a.dev/" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://dscbmr.is-a.dev/', '_blank')">Visit Website</div>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fa fa-terminal"></i> <a href="https://terminalbmr.is-a.dev" target="_blank" style="color: inherit; text-decoration: none;">TERMINAL PORTFOLIO</a></div>
                 <iframe src="https://terminalbmr.is-a.dev" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://terminalbmr.is-a.dev', '_blank')">Visit Website</div>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fa fa-gamepad"></i> <a href="https://playwithbmr.is-a.dev" target="_blank" style="color: inherit; text-decoration: none;">PLAY WITH ME</a></div>
                 <iframe src="https://playwithbmr.is-a.dev" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://playwithbmr.is-a.dev', '_blank')">Visit Website</div>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fa fa-arrows"></i> <a href="https://bmr.thedev.me" target="_blank" style="color: inherit; text-decoration: none;">MY 3D PROJECTS</a></div>
                 <iframe src="https://bmr.thedev.me" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://bmr.thedev.me', '_blank')">Visit Website</div>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fab fa-themeco"></i> <a href="https://buymeacoffee.com/rayxstudiozgames" target="_blank" style="color: inherit; text-decoration: none;">DONATE</a></div>
                 <iframe src="https://buymeacoffee.com/rayxstudiozgames" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://buymeacoffee.com/rayxstudiozgames', '_blank')">Visit Website</div>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/bmr.tt1/embed" target="_blank" style="color: inherit; text-decoration: none;">INSTAGRAM</a></div>
                 <iframe src="https://www.instagram.com/bmr.tt1/embed" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://www.instagram.com/bmr.tt1/embed', '_blank')">Visit Website</div>
             </div>
         </li>
         <li class="list__item">
             <div class="list__item-container">
                 <div class="title"><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/embed/t4dh4_CS118?si=JrHzYVy5hUnWPsBc" target="_blank" style="color: inherit; text-decoration: none;">YOUTUBE</a></div>
                 <iframe src="https://www.youtube.com/embed/a5H6xgdDESs" frameborder="0"></iframe>
+                <div class="visit-button" onclick="window.open('https://www.youtube.com/embed/a5H6xgdDESs', '_blank')">Visit Website</div>
             </div>
         </li>
     </ul>
     <footer>
         <p>Created with ❤️ by RAYXSTUDIOZ</p>
     </footer>
+
+    <div id="toast"></div>
+
+    <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable Control+U
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+            }
+        });
+
+        // Handle visit button click
+        document.querySelectorAll('.visit-button').forEach(button => {
+            button.addEventListener('click', function() {
+                window.open(this.parentElement.querySelector('a').href, '_blank');
+            });
+        });
+
+        // Toast notification
+        const actionLink = document.querySelectorAll(".list__item-container .title a");
+
+        actionLink.forEach((action) => {
+            action.addEventListener("click", (e) => {
+                e.preventDefault();
+                navigator.clipboard.writeText(action.href);
+
+                // Show toast notification
+                const toast = document.createElement('div');
+                toast.className = 'toast-container';
+                toast.innerHTML = `<p>✅ Link <strong>${action.innerText}</strong> successfully copied!</p>`;
+                document.getElementById("toast").appendChild(toast);
+
+                // Remove toast notification
+                setTimeout(() => {
+                    toast.classList.add("toast-gone");
+                }, 300);
+
+                setTimeout(() => {
+                    toast.remove();
+                }, 2000);
+            });
+        });
+    </script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="rayxstudiozgames" data-description="Support me on Buy me a coffee!" data-message="BUY ME A COFFEE" data-color="#BD5FFF" data-position="left" data-x_margin="18" data-y_margin="18"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Protected Page</title>
-<script>
-// Disable right-click context menu
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
-
-// Disable Control+U
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'u') {
-        e.preventDefault();
-    }
-});
-</script>
-</head>
-<body>
-<style>* {
-  
-<script>/**
- * Untuk membuat link bisa dicopy
- */
-const actionLink = document.querySelectorAll(".link-card .link-action");
-
-actionLink.forEach((action) => {
-  action.addEventListener("click", (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(action.parentElement.getAttribute("href"));
-
-    /**
-     * Untuk memunculkan toast notification
-     */
-    document.getElementById("toast").innerHTML = `
-        <div class="toast-container">
-            <p>✅ Link <strong> ${action.parentElement.innerText} </strong> berhasil disalin!</p>
-        </div>
-    `;
-
-    /**
-     * Untuk menghilangkan toast notification
-     */
-
-    setTimeout(() => {
-      document
-        .querySelector("#toast .toast-container")
-        .classList.add("toast-gone");
-    }, 300);
-
-    setTimeout(() => {
-      document.querySelector("#toast .toast-container").remove();
-    }, 2000);
-  });
-});
-
-/**
- * Untuk ganti icon sosmed saat hover
- */
-
-document.querySelectorAll(".sosmed i").forEach((sosmed) => {
-  sosmed.addEventListener("mouseenter", () => {
-    sosmed.classList.remove("ph");
-    sosmed.classList.add("ph-fill");
-  });
-
-  sosmed.addEventListener("mouseleave", () => {
-    sosmed.classList.remove("ph-fill");
-    sosmed.classList.add("ph");
-  });
-});
-
-/**
- * Animasi Text bergerak saat scroll
- */
-
-document.addEventListener("scroll", (e) => {
-  document.querySelector(".bg-text-animation").style.transform = `translateX(${
-    window.scrollY / 5
-  }px)`;
-});</script>
-  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="rayxstudiozgames" data-description="Support me on Buy me a coffee!" data-message="BUY ME A COFEE" data-color="#BD5FFF" data-position="left" data-x_margin="18" data-y_margin="18"></script>
